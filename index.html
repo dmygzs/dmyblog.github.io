@@ -1,77 +1,216 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <title>欢迎来到大绵羊博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO 优化 -->
+    <meta name="description" content="大绵羊博客的引导页面，分享各种有趣的内容和文章。">
+    <meta name="keywords" content="大绵羊, 博客, 引导页面, 技术博客, 个人博客">
     <style>
-        @keyframes fadelogIn {
+        /* 字体 */
+        @font-face {
+            font-family: "Alimama";
+            src: url('./Alimama.woff2');
+        }
+
+        body {
+            font-family: "Alimama" !important;
+        }
+
+        b {
+            font-weight: 500;
+        }
+
+        div,
+        p,
+        a,
+        span,
+        h1 {
+            font-family: "Alimama" !important;
+        }
+
+
+        /* 重置默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
             0% {
-                transform: translate3d(0, -40%, 0);
-                transform: translate3d(0, -40%, 0);
+                transform: translateY(-40%);
+                opacity: 0;
             }
 
             100% {
-                transform: none;
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        html {
-            font-family: font, font2;
+        /* 按钮渐变动画 */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 全局样式 */
+        html,
+        body {
+            height: 100%;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
             background-image: url(https://batimg.com/rrlSun.webp);
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
+        /* 卡片样式 */
         .card {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            border-style: solid;
-            border-width: 1px;
-            border-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-            position: relative;
-            top: 25%;
+            background-color: rgb(255 255 255 / 42%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgb(255 255 255 / 37%);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 30%;
-            margin-left: 35%;
-            margin-bottom: 25px;
-            padding: 30px 30px;
-            padding-bottom: 35px;
-            animation: fadelogIn .9s;
+            max-width: 400px;
+            padding: 40px 30px;
+            animation: fadeIn 0.9s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-
-
-        h1,
-        p {
-            color: #525f7f;
+        /* 卡片悬停效果 */
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
-        button {
-            margin-top: 5px;
+        /* 图片样式 */
+        .card img {
+            width: 15vw;
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 标题和段落样式 */
+        .card h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* 按钮样式 */
+        .button {
+            display: inline-block;
             color: #fff;
-            border-color: #5e72e4;
-            background-color: #5e72e4;
-            box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
-            font-size: .875rem;
+            background: linear-gradient(270deg, #5e72e4, #3d5ae4, #5e72e4);
+            background-size: 600% 600%;
+            animation: gradientAnimation 8s ease infinite;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 24px;
+            font-size: 1rem;
             font-weight: 600;
-            line-height: 1.5;
-            padding: .625rem 1.25rem;
-            text-align: center;
-            border: 1px solid transparent;
-            border-radius: .25rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 按钮悬停效果 */
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(50, 50, 93, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .card {
+                width: 80%;
+                padding: 30px 20px;
+            }
+
+            .card img {
+                width: 20vw;
+                max-width: 80px;
+            }
+
+            .card h1 {
+                font-size: 1.5rem;
+            }
+
+            .card p {
+                font-size: 0.95rem;
+            }
+
+            .button {
+                width: 100%;
+                padding: 14px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 90%;
+                padding: 25px 15px;
+            }
+
+            .card img {
+                width: 25vw;
+                max-width: 60px;
+            }
+
+            .card h1 {
+                font-size: 1.25rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                padding: 12px 0;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="card">
-        <img style="width: 10vw;" src="https://dmyblog.cn/logo-icon.svg">
+        <img src="https://dmyblog.cn/logo-icon.svg" alt="大绵羊博客 Logo">
         <h1>大绵羊博客</h1>
-        <p>很荣幸您能访问我的网站！ </p>
-        <a href="https://dmyblog.cn/"><button>进入博客</button></a>
+        <p>这是大绵羊的引导页面，欢迎您的到来！</p>
+        <a href="https://dmyblog.cn/" class="button">进入博客</a>
     </div>
 </body>
 
