@@ -117,8 +117,8 @@
             background-size: 600% 600%;
             animation: gradientAnimation 8s ease infinite;
             border: none;
-            border-radius: 4px;
-            padding: 12px 24px;
+            border-radius: 8px;
+            padding: 15px 40px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
@@ -183,16 +183,57 @@
                 font-size: 0.95rem;
             }
         }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .dmy-footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dmy-footer-icon {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="card">
-        <img src="https://dmyblog.cn/logo-icon.svg" alt="大绵羊博客 Logo">
+        <img style="width: 10vw;" src="https://dmyblog.cn/logo-icon.svg">
         <h1>大绵羊博客</h1>
         <p>很荣幸您能访问我的网站！ </p>
-        <a href="https://dmyblog.cn/"><button>进入博客</button></a>
+        <div>
+            <p style="color: #ff4d00;">广告: <span style="color: #525f7f;">如果您有想法购买7B2主题，可以联系站长返现购买哈</span></p>
+            <p style="color: #ff4d00;">广告: <span style="color: #525f7f;">接网站wordpress各种疑难杂症50解君愁</span></p>
+            <p style="color: #ff4d00;">站长QQ: <span style="color: #525f7f;">1992890443</span></p>
+        </div>
+        </br>
+
+        <div class="dmy-footer">
+            <a href="https://dmyblog.cn/">
+                <div class="button dmy-footer-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-a-Element_Dendro-cao">
+                        </use>
+                    </svg>
+                    <span>进入博客</span>
+                </div>
+            </a>
+        </div>
     </div>
+    <script src="./font/iconfont.js"></script>
 </body>
+
 
 </html>
